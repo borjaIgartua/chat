@@ -14,6 +14,8 @@ class UsersTableViewController: UITableViewController, UsersInteractorDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.addBarButtons()
 
         interactor = UsersInteractor()
         interactor!.delegate = self
@@ -33,7 +35,7 @@ class UsersTableViewController: UITableViewController, UsersInteractorDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -137,4 +139,33 @@ class UsersTableViewController: UITableViewController, UsersInteractorDelegate {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 
+//MARK: - Style methods
+    
+    func addBarButtons() {
+        
+        let item = self.navigationItem
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh,
+                                        target: self,
+                                        action: #selector(UsersTableViewController.refresh))
+        
+        let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settings.png"),
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(UsersTableViewController.navigateSettings))
+        
+        item.setRightBarButtonItems([refreshButton, fixedSpace,settingsButton], animated: true)
+    }
+    
+//MARK - Bar button methods
+    
+    func refresh() {
+        self.interactor?.refreshUsers()
+    }
+    
+    func navigateSettings() {
+        
+        let settingsViewController = self.storyboard?.instantiateViewController(withIdentifier: "settingsStoryboardID")
+        self.navigationController?.pushViewController(settingsViewController!, animated: true)
+    }
 }

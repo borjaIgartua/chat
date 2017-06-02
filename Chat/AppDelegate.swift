@@ -15,7 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if Session.sharedSession.user == nil {
+            
+            Session.sharedSession.user = User(displayName: UIDevice.current.name, userInfo: nil)
+        }
+        
         return true
     }
 

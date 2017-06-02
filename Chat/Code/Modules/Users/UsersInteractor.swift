@@ -16,9 +16,8 @@ class UsersInteractor: MPCManagerDelegate {
     var users = [User]()
     var connectedUser: User?
     
-    init() {
-        Session.sharedSession.user = User(displayName: UIDevice.current.name, userInfo: nil)
-        self.mpcManager = MPCManager(displayName: UIDevice.current.name, userInfo: nil)        
+    init() {        
+        self.mpcManager = MPCManager(displayName: Session.sharedSession.user!.name, userInfo: nil)
     }
     
 //MARK: - Utils
@@ -26,12 +25,19 @@ class UsersInteractor: MPCManagerDelegate {
     func start() {
         users = []
         self.mpcManager.delegate = self
-        self.mpcManager.startSearchingNearbyPeers()
+        self.mpcManager.reset()
     }
     
     func sendInvitationToUser(inIndexPath indexPath: IndexPath) {
         self.connectedUser = self.users[indexPath.row]
         self.mpcManager.invitePeer(atIndex: indexPath.row, withContext: nil)
+    }
+    
+    @objc func refreshUsers() {
+        
+        self.users.removeAll()
+        connectedUser = nil
+        self.mpcManager.reset()
     }
         
     

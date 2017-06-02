@@ -70,6 +70,20 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         isAdvertising = false
     }
     
+    func reset() {
+        
+        foundPeers.removeAll()
+        connectedPeer = nil
+        
+        browser.stopBrowsingForPeers()
+        advertiser.stopAdvertisingPeer()
+        
+        browser.startBrowsingForPeers()
+        advertiser.startAdvertisingPeer()
+        
+        isAdvertising = true
+    }
+    
     func invitePeer(atIndex index: Int, withContext context: Data?) {
         let peer = self.foundPeers[index]
         browser.invitePeer(peer, to: self.session, withContext: context, timeout: 10)

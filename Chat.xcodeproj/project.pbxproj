@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0012A2661EE15FCD00085132 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012A2651EE15FCD00085132 /* SettingsViewController.swift */; };
+		0012A26A1EE164A800085132 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012A2691EE164A800085132 /* SettingsInteractor.swift */; };
 		0029DCAC1EDC1905003C427E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029DCAB1EDC1905003C427E /* AppDelegate.swift */; };
 		0029DCB11EDC1905003C427E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0029DCAF1EDC1905003C427E /* Main.storyboard */; };
 		0029DCB31EDC1905003C427E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0029DCB21EDC1905003C427E /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0012A2651EE15FCD00085132 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Code/Modules/Settings/SettingsViewController.swift; sourceTree = "<group>"; };
+		0012A2691EE164A800085132 /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsInteractor.swift; path = Code/Modules/Settings/SettingsInteractor.swift; sourceTree = "<group>"; };
 		0029DCA81EDC1905003C427E /* Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0029DCAB1EDC1905003C427E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0029DCB01EDC1905003C427E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0012A2641EE15F9500085132 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0012A2651EE15FCD00085132 /* SettingsViewController.swift */,
+				0012A2691EE164A800085132 /* SettingsInteractor.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		0029DC9F1EDC1905003C427E = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +118,7 @@
 		0029DCC11EDC2137003C427E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0012A2641EE15F9500085132 /* Settings */,
 				0029DCCD1EDC66EA003C427E /* Chat */,
 				0029DCC31EDC21B9003C427E /* Users */,
 				0029DCAF1EDC1905003C427E /* Main.storyboard */,
@@ -228,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0012A26A1EE164A800085132 /* SettingsInteractor.swift in Sources */,
 				0029DCC71EDC228F003C427E /* UsersInteractor.swift in Sources */,
 				00A5802D1EDC753F007C7312 /* ChatInteractor.swift in Sources */,
 				00A5802F1EDC7966007C7312 /* Message.swift in Sources */,
@@ -239,6 +254,7 @@
 				0029DCC51EDC21E9003C427E /* UsersTableViewController.swift in Sources */,
 				00A580311EDC7979007C7312 /* User.swift in Sources */,
 				0029DCBE1EDC1C15003C427E /* MPCManager.swift in Sources */,
+				0012A2661EE15FCD00085132 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

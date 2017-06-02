@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,6 +28,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZP-Wj-QVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="450" y="54"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="Xnw-X8-Atd">
+            <objects>
+                <viewController storyboardIdentifier="settingsStoryboardID" id="NEa-o3-Y6q" customClass="SettingsViewController" customModule="Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3OE-qz-9kV"/>
+                        <viewControllerLayoutGuide type="bottom" id="AEF-PZ-ZPM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qwm-je-tJH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMK-f4-K04">
+                                <rect key="frame" x="16" y="289" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cvj-vy-myK">
+                                <rect key="frame" x="100.5" y="80" width="174" height="174"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="174" id="any-le-dUl"/>
+                                    <constraint firstAttribute="height" constant="174" id="up3-7A-DrL"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SK-6r-oJw">
+                                <rect key="frame" x="170" y="369" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="NEa-o3-Y6q" eventType="touchUpInside" id="hej-hm-Eym"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D5d-4H-TrL">
+                                <rect key="frame" x="16" y="318" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1SK-6r-oJw" firstAttribute="centerX" secondItem="qwm-je-tJH" secondAttribute="centerX" id="2u1-FO-UHg"/>
+                            <constraint firstItem="1SK-6r-oJw" firstAttribute="top" secondItem="D5d-4H-TrL" secondAttribute="bottom" constant="21" id="8rp-pG-JLV"/>
+                            <constraint firstItem="cvj-vy-myK" firstAttribute="top" secondItem="3OE-qz-9kV" secondAttribute="bottom" constant="60" id="9V6-SW-6sw"/>
+                            <constraint firstItem="xMK-f4-K04" firstAttribute="top" secondItem="cvj-vy-myK" secondAttribute="bottom" constant="35" id="Lfp-Js-ucb"/>
+                            <constraint firstItem="xMK-f4-K04" firstAttribute="trailing" secondItem="qwm-je-tJH" secondAttribute="trailingMargin" id="NdX-g6-Xg1"/>
+                            <constraint firstItem="cvj-vy-myK" firstAttribute="centerX" secondItem="qwm-je-tJH" secondAttribute="centerX" id="YKa-2v-Z54"/>
+                            <constraint firstItem="D5d-4H-TrL" firstAttribute="trailing" secondItem="qwm-je-tJH" secondAttribute="trailingMargin" id="enN-ps-cWa"/>
+                            <constraint firstItem="xMK-f4-K04" firstAttribute="leading" secondItem="qwm-je-tJH" secondAttribute="leadingMargin" id="gPe-th-fgL"/>
+                            <constraint firstItem="D5d-4H-TrL" firstAttribute="top" secondItem="xMK-f4-K04" secondAttribute="bottom" constant="8" id="gmF-Lr-VU8"/>
+                            <constraint firstItem="D5d-4H-TrL" firstAttribute="leading" secondItem="qwm-je-tJH" secondAttribute="leadingMargin" id="xZu-9s-b97"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="saveButton" destination="1SK-6r-oJw" id="U5a-j6-rs9"/>
+                        <outlet property="userImageView" destination="cvj-vy-myK" id="6Yl-op-Nhd"/>
+                        <outlet property="usernameTextField" destination="D5d-4H-TrL" id="yHe-zf-JQs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffh-iP-lH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1096.8" y="53.523238380809602"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iG1-hD-TTp">
