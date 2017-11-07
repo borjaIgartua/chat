@@ -48,7 +48,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
 
 //MARK: - User interaction
     
-    func userImagePressed() {
+    @objc func userImagePressed() {
         
         let imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self

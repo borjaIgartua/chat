@@ -159,11 +159,11 @@ class UsersTableViewController: UITableViewController, UsersInteractorDelegate {
     
 //MARK - Bar button methods
     
-    func refresh() {
+    @objc func refresh() {
         self.interactor?.refreshUsers()
     }
     
-    func navigateSettings() {
+    @objc func navigateSettings() {
         
         let settingsViewController = self.storyboard?.instantiateViewController(withIdentifier: "settingsStoryboardID")
         self.navigationController?.pushViewController(settingsViewController!, animated: true)

@@ -106,7 +106,7 @@ class ChatViewController: UIViewController, ChatInteractorDelegate, UITableViewD
     
 //MARK: - AutoLayout
     
-    func keyboardWillShow(notification: Notification) {
+    @objc func keyboardWillShow(notification: Notification) {
         
         if let info = notification.userInfo {
             let keyboardFrame = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
@@ -117,7 +117,7 @@ class ChatViewController: UIViewController, ChatInteractorDelegate, UITableViewD
         }
         
     }
-    func keyboardWillHide(notification: Notification) {
+    @objc func keyboardWillHide(notification: Notification) {
         
         if let info = notification.userInfo {
             if let animationDuration = info[UIKeyboardAnimationDurationUserInfoKey] as? Double {
@@ -132,6 +132,16 @@ class ChatViewController: UIViewController, ChatInteractorDelegate, UITableViewD
         
         UIView.animate(withDuration: duration) { 
             self.view.layoutIfNeeded()
+        }
+        
+        if height > 0 {
+            if var index = self.interactor?.messages.count {
+                index = index-1
+                if index > 0 {
+                    let indexPath = IndexPath(row: index, section: 0)
+                    self.messagesTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                }
+            }
         }
     }
     
@@ -152,7 +162,7 @@ class ChatViewController: UIViewController, ChatInteractorDelegate, UITableViewD
     
 //MARK: - Utils
     
-    func userTapInView() {
+    @objc func userTapInView() {
         self.view.findFirstResponder()?.resignFirstResponder()
     }
     
@@ -163,6 +173,11 @@ class ChatViewController: UIViewController, ChatInteractorDelegate, UITableViewD
         let indexPath = IndexPath(row: index, section: 0)
         let animation = isMine ? UITableViewRowAnimation.right : UITableViewRowAnimation.left
         self.messagesTableView.insertRows(at: [indexPath], with: animation)
+        
+        if index > 0 {
+            let indexPath = IndexPath(row: index, section: 0)
+            self.messagesTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
     }
     
     func connectionError() {
